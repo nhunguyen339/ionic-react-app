@@ -1,0 +1,16 @@
+import React from 'react'; import { Route, Link } from 
+'react-router-dom'; import PostDetail from '../PostDetail/PostDetail';
+
+const Post = (props) => {
+    const {data} = props;
+    return(
+        <div className="post">
+        <Route path="tab1/:dogId" component={PostDetail} exact={true} />
+            <h3>{data.name}</h3>
+            <a href={data.cfa_url}>CFA URL</a>
+            <Link to={`${this.props.match.url}/${data.id}`}>Components</Link>
+        </div>
+    );
+}
+
+export default Post;

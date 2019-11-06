@@ -14,12 +14,10 @@ import {
 import React, { useEffect, useState, Component } from 'react';
 import './Tab1.css';
 import Post from '../component/Post/Post';
-import PostDetail from '../component/PostDetail/PostDetail';
 
 class Tab1 extends Component {
   state = {
-    list: null,
-    listDetail: null
+    list: null
   }
 
   componentDidMount() {
@@ -28,26 +26,15 @@ class Tab1 extends Component {
     .then((data) => {
       let listPet = [];
       data.map((item, index) => {
-        listPet.push(<Post clicked={() => this.handleSelectPetDetail(item.id)} key={index} data={item} />)
+        listPet.push(<Post key={index} data={item} />)
       });
       this.setState({list: listPet});
     })
-  }
-
-  handleSelectPetDetail = (id) => {
-    fetch(`https://api.thedogapi.com/v1/images/search?breed_ids=${id}&limit=10`)
-    .then((res) => res.json())
-    .then((data) => {
-      let listPetDetail = [];
-      data.map((item, index) => {
-        listPetDetail.push(<PostDetail key={index} data={item} />)
-      });
-      this.setState({listDetail: listPetDetail});
-    });
+    console.log(this.props.match.url)
   }
 
   render() {
-    const {list, listDetail} = this.state;
+    const {list} = this.state;
     return (
       <IonPage>
         <IonHeader>
@@ -57,7 +44,6 @@ class Tab1 extends Component {
         </IonHeader>
         <IonContent>
           {list}
-          {listDetail}
         </IonContent>
       </IonPage>
     );

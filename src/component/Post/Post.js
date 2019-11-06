@@ -1,12 +1,17 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
+import PostDetail from '../PostDetail/PostDetail';
 
 const Post = (props) => {
-    const {data, clicked} = props;
+    console.log(props.match)
     return(
-        <div tab="tab1" href="/tab1/detail/{id}" className="post">
-            <h3>{data.name}</h3>
-            <a href={data.cfa_url}>CFA URL</a>
-            <button onClick={clicked}>More</button>
+        <div className="post">
+            <h3>{props.data.name}</h3>
+            {/* <Link to={`${props.match.url}/${props.data.id}`}>More Detail</Link> */}
+            <div>
+        {/* <Route path={`${props.match.url}/:dogId`} component={PostDetail} exact={true} /> */}
+
+            </div>
         </div>
     );
 }
