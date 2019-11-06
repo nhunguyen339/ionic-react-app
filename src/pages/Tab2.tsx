@@ -1,5 +1,14 @@
 import React from 'react';
-import { IonContent, IonHeader, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent,
+  IonHeader,
+  IonCard,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonCardContent } from '@ionic/react';
 
 const Tab2: React.FC = () => {
   return (
@@ -10,13 +19,19 @@ const Tab2: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonList>
-          <IonItem routerLink="/tab2/details">
-            <IonLabel>
-              <h2>Go to detail</h2>
-            </IonLabel>
-          </IonItem>
-        </IonList>
+        <IonCard className="welcome-card">
+          <img src="/assets/shapes.svg" alt="" />
+          <IonCardHeader>
+            <IonCardSubtitle>Get Started</IonCardSubtitle>
+            <IonCardTitle>Welcome to Ionic</IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent>
+            <p>
+              Now that your app has been created, you'll want to start building out features and
+              components. Check out some of the resources below for next steps.
+            </p>
+          </IonCardContent>
+        </IonCard>
       </IonContent>
     </IonPage>
   );
